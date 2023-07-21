@@ -3,7 +3,6 @@ use discord_flows::{
     ProvidedBot, Bot,
 };
 use flowsnet_platform_sdk::logger;
-use serde_json::json;
 
 #[no_mangle]
 #[tokio::main(flavor = "current_thread")]

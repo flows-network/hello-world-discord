@@ -1,5 +1,5 @@
 [package]
-name = "hello-world"
+name = "hello-world-discord"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,5 +11,6 @@ crate-type = ["cdylib"]
 discord-flows = "0.4"
 flowsnet-platform-sdk = "0.1"
 tokio_wasi = { version = "1.25.1", features = ["macros", "rt"] }
-serde_json = "1.0"
 log = "0.4"
+serde_json = "1.0"
+anyhow = "1"
