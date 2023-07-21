@@ -2,7 +2,7 @@
 
 This flow function acts as a Discord bot.
 
-1. Create a Discord bot and note down its *bot token*.
+1. [Create a Discord bot](https://flows.network/blog/discord-chat-bot-guide) and note down its *bot token*.
 2. Add the bot to a Discord server via the bot's URL.
 3. Fork this repo into your own GitHub account.
 4. Go to [Flows.network](https://flows.network/flow/new) to create a new flow.
