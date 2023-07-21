@@ -21,6 +21,10 @@ async fn handler(bot: &ProvidedBot, msg: Message) {
         log::debug!("ignored bot message");
         return;
     }
+    if msg.member.is_some() {
+        log::debug!("ignored channel message");
+        return;
+    }
 
     let channel_id = msg.channel_id;
     let resp = format!("Welcome to flows.network.\nYou just said: '{}'.\nLearn more at: https://github.com/flows-network/hello-world\n", msg.content);
