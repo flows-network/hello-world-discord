@@ -1,20 +1,23 @@
 use discord_flows::{
     model::Message,
     ProvidedBot, Bot,
+    message_handler,
 };
 use flowsnet_platform_sdk::logger;
 
 #[no_mangle]
 #[tokio::main(flavor = "current_thread")]
-pub async fn run() -> anyhow::Result<()> {
-    let discord_token = std::env::var("discord_token").unwrap();
-    let bot = ProvidedBot::new(discord_token);
-    bot.listen(|msg| handler(&bot, msg)).await;
-    Ok(())
+pub async fn on_deploy() {
+    let token = std::env::var("discord_token").unwrap();
+    let bot = ProvidedBot::new(token);
+    bot.listen_to_messages().await;
 }
 
-async fn handler(bot: &ProvidedBot, msg: Message) {
+#[message_handler]
+async fn handler(msg: Message) {
     logger::init();
+    let token = std::env::var("discord_token").unwrap();
+    let bot = ProvidedBot::new(token);
     let discord = bot.get_client();
 
     if msg.author.bot {
